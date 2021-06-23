@@ -28,3 +28,6 @@ from .muir_glacier import (  # noqa: F401
 from .berlin import (  # noqa: F401
     BerlinVM,
 )
+from .simplevm import (  # noqa: F401
+    SimpleVM,
+)
