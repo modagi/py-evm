@@ -19,7 +19,7 @@ from .state import SimpleState
 
 class SimpleVM(BerlinVM):
     # fork name
-    fork = 'muir-glacier'
+    fork = 'simple'
 
     # classes
     block_class: Type[BaseBlock] = SimpleBlock
