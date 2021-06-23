@@ -15,6 +15,7 @@ from .headers import (
     create_simple2_header_from_parent,
 )
 from .state import Simple2State
+from .validation import validate_simple2_transaction_against_header
 
 
 class Simple2VM(FrontierVM):
@@ -26,6 +27,4 @@ class Simple2VM(FrontierVM):
     _state_class: Type[BaseState] = Simple2State
 
     # Methods
-    create_header_from_parent = staticmethod(create_simple2_header_from_parent)  # type: ignore
-    compute_difficulty = staticmethod(compute_simple2_difficulty)    # type: ignore
-    configure_header = configure_simple2_header
+    validate_transaction_against_header = validate_simple2_transaction_against_header

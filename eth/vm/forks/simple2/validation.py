@@ -3,8 +3,10 @@ from eth_utils import (
 )
 
 from eth.abc import (
+    BlockHeaderAPI,
     SignedTransactionAPI,
     StateAPI,
+    VirtualMachineAPI,
 )
 
 
@@ -33,3 +35,8 @@ def validate_simple2_transaction(state: StateAPI,
         raise ValidationError(
             f"Invalid transaction nonce: Expected {sender_nonce}, but got {transaction.nonce}"
         )
+
+def validate_simple2_transaction_against_header(_vm: VirtualMachineAPI,
+                                                 base_header: BlockHeaderAPI,
+                                                 transaction: SignedTransactionAPI) -> None:
+    pass
