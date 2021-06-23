@@ -24,6 +24,7 @@ from eth.constants import CREATE_CONTRACT_ADDRESS
 
 from .computation import Simple2Computation
 
+from .validation import validate_simple2_transaction
 
 class Simple2TransactionExecutor(FrontierTransactionExecutor):
     def build_evm_message(self, transaction: SignedTransactionAPI) -> MessageAPI:
@@ -131,3 +132,6 @@ class Simple2TransactionExecutor(FrontierTransactionExecutor):
 class Simple2State(FrontierState):
     computation_class = Simple2Computation
     transaction_executor_class: Type[TransactionExecutorAPI] = Simple2TransactionExecutor
+
+    def validate_transaction(self, transaction: SignedTransactionAPI) -> None:
+        validate_simple2_transaction(self, transaction)
